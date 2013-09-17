@@ -1,6 +1,6 @@
 {-
    OpenALInfo.hs (modeled after OpenGL's glxinfo)
-   Copyright (c) Sven Panne 2005-2013 <svenpanne@gmail.com>
+   Copyright (c) Sven Panne 2005-2013
    This file is part of the ALUT package & distributed under a BSD-style license.
    See the file LICENSE.
 -}

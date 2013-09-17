@@ -2,7 +2,7 @@
 --------------------------------------------------------------------------------
 -- |
 -- Module      :  Sound.ALUT.Config
--- Copyright   :  (c) Sven Panne 2006
+-- Copyright   :  (c) Sven Panne 2006-2013
 -- License     :  BSD3
 -- 
 -- Maintainer  :  Sven Panne <svenpanne@gmail.com>
