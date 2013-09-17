@@ -3,9 +3,9 @@
 -- |
 -- Module      :  Sound.ALUT.Config
 -- Copyright   :  (c) Sven Panne 2006
--- License     :  BSD-style (see the file LICENSE)
+-- License     :  BSD3
 -- 
--- Maintainer  :  sven.panne@aedion.de
+-- Maintainer  :  Sven Panne <svenpanne@gmail.com>
 -- Stability   :  stable
 -- Portability :  portable
 --

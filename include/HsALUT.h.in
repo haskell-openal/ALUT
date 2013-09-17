@@ -1,11 +1,11 @@
 /* -----------------------------------------------------------------------------
  *
  * Module      :  C support for Sound.ALUT
- * Copyright   :  (c) Sven Panne 2005-2009
- * License     :  BSD-style (see the file libraries/ALUT/LICENSE)
- * 
- * Maintainer  :  sven.panne@aedion.de
- * Stability   :  provisional
+ * Copyright   :  (c) Sven Panne 2005-2013
+ * License     :  BSD3
+ *
+ * Maintainer  :  svenpanne@gmail.com
+ * Stability   :  stable
  * Portability :  portable
  *
  * -------------------------------------------------------------------------- */

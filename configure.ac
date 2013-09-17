@@ -1,4 +1,4 @@
-AC_INIT([Haskell ALUT package], [2.1.0.2], [sven.panne@aedion.de], [ALUT])
+AC_INIT([Haskell ALUT package], [2.3.0.0], [svenpanne@gmail.com], [ALUT])
 
 # Safety check: Ensure that we are in the correct source directory.
 AC_CONFIG_SRCDIR([include/HsALUT.h.in])

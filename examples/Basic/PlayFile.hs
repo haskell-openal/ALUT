@@ -1,8 +1,8 @@
 {-
    PlayFile.hs (adapted from playfile.c in freealut)
-   Copyright (c) Sven Panne 2005-2009 <sven.panne@aedion.de>
-   This file is part of the ALUT package & distributed under a BSD-style license
-   See the file libraries/ALUT/LICENSE
+   Copyright (c) Sven Panne 2005-2013 <svenpanne@gmail.com>
+   This file is part of the ALUT package & distributed under a BSD-style license.
+   See the file LICENSE.
 -}
 
 import Control.Monad ( when, unless )
