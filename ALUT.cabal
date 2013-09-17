@@ -4,7 +4,7 @@ license: BSD3
 license-file: LICENSE
 maintainer: Sven Panne <svenpanne@gmail.com>
 bug-reports: https://github.com/haskell-openal/ALUT/issues
-homepage: http://connect.creativelabs.com/openal/
+homepage: https://github.com/haskell-openal/ALUT
 category: Sound
 synopsis: A binding for the OpenAL Utility Toolkit
 description:
@@ -13,7 +13,7 @@ description:
         and creating waveforms very easy. For more information about the
         C library on which this binding is based, please see:
         <http://connect.creativelabs.com/openal/Documentation/The%20OpenAL%20Utility%20Toolkit.pdf>.
-build-type:     Configure
+build-type: Configure
 extra-source-files:
         ALUT.buildinfo.in
         README
