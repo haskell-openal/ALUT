@@ -16,11 +16,11 @@ module Sound.ALUT.Loaders (
    bufferMIMETypes, bufferDataMIMETypes
 )  where
 
-import Data.StateVar
 import Foreign.C.String ( peekCString, withCString )
 import Foreign.Marshal.Alloc ( alloca )
 import Foreign.Storable ( Storable(peek) )
 import Foreign.Ptr ( Ptr )
+import Graphics.Rendering.OpenGL ( GettableStateVar, makeGettableStateVar )
 import Sound.ALUT.Config (
    alut_CreateBufferFromFile, alut_CreateBufferFromFileImage,
    alut_CreateBufferHelloWorld, alut_CreateBufferWaveform,
@@ -36,7 +36,6 @@ import Sound.OpenAL.AL.BasicTypes ( ALsizei, ALenum, ALfloat )
 import Sound.OpenAL.AL.Buffer ( Buffer, MemoryRegion(..), BufferData(..) )
 import Sound.OpenAL.AL.Format ( unmarshalFormat )
 import Sound.OpenAL.ALC.Context ( Frequency )
-import System.IO ( FilePath )
 
 --------------------------------------------------------------------------------
 
