@@ -673,6 +673,7 @@ ac_subst_files=''
 ac_user_opts='
 enable_option_checking
 with_compiler
+with_gcc
 enable_alut
 '
       ac_precious_vars='build_alias
@@ -1307,6 +1308,7 @@ Optional Packages:
   --with-PACKAGE[=ARG]    use PACKAGE [ARG=yes]
   --without-PACKAGE       do not use PACKAGE (same as --with-PACKAGE=no)
   --with-compiler[=HC]    use the given Haskell compiler (default=ghc)
+  --with-gcc[=ARG]        Use ARG as CC (default=autodetect)
 
 Some influential environment variables:
   CC          C compiler command
@@ -2232,6 +2234,14 @@ else
   with_compiler=ghc
 fi
 
+
+
+# cabal uses --with-gcc=foo instead of the more common CC=foo
+
+# Check whether --with-gcc was given.
+if test "${with_gcc+set}" = set; then :
+  withval=$with_gcc; test -n "$withval" && test "$withval" != yes && CC=$withval
+fi
 
 
 # We set this to "yes" later when we have found ALUT libs and headers.

@@ -12,6 +12,11 @@ AC_CONFIG_HEADERS([include/HsALUTConfig.h include/HsALUT.h])
 # unknown option
 FP_ARG_COMPILER
 
+# cabal uses --with-gcc=foo instead of the more common CC=foo
+AC_ARG_WITH([gcc],
+[AC_HELP_STRING([--with-gcc@<:@=ARG@:>@], [Use ARG as CC (default=autodetect)])],
+[test -n "$withval" && test "$withval" != yes && CC=$withval])
+
 # We set this to "yes" later when we have found ALUT libs and headers.
 ALUT_BUILD_PACKAGE=no
 
