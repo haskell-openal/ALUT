@@ -5,6 +5,8 @@
    See the file LICENSE.
 -}
 
+import Control.Exception ( onException )
+import Control.Monad ( void )
 import Sound.ALUT
 import System.Exit ( exitFailure, exitWith, ExitCode(ExitSuccess) )
 import System.IO ( hPutStrLn, stderr )
@@ -13,8 +15,8 @@ import System.IO ( hPutStrLn, stderr )
 
 main :: IO ()
 main = do
-   withProgNameAndArgs runALUT $ \_progName _args ->
+   void $ withProgNameAndArgs runALUT $ \_progName _args ->
      createBuffer (File "no_such_file_in_existance.wav")
-       `catch` const (exitWith ExitSuccess)
+       `onException` (exitWith ExitSuccess)
    hPutStrLn stderr "expected an I/O error"
    exitFailure
