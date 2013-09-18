@@ -14,6 +14,7 @@ description:
         C library on which this binding is based, please see:
         <http://connect.creativelabs.com/openal/Documentation/The%20OpenAL%20Utility%20Toolkit.pdf>.
 build-type: Configure
+cabal-version:  >= 1.6
 extra-source-files:
         ALUT.buildinfo.in
         README
@@ -43,22 +44,23 @@ extra-tmp-files:
         ALUT.buildinfo
         include/HsALUTConfig.h
         include/HsALUT.h
-exposed-modules:
+library
+    exposed-modules:
         Sound.ALUT,
         Sound.ALUT.Initialization,
         Sound.ALUT.Loaders,
         Sound.ALUT.Sleep,
         Sound.ALUT.Version
-other-modules:
+    other-modules:
         Sound.ALUT.Config,
         Sound.ALUT.Constants,
         Sound.ALUT.Errors
-include-dirs: include
-includes: HsALUT.h
-install-includes: HsALUT.h
-ghc-options: -Wall
-build-depends: base >= 3 && < 5, StateVar, OpenAL
-extensions: CPP, ForeignFunctionInterface
+    include-dirs: include
+    includes: HsALUT.h
+    install-includes: HsALUT.h
+    ghc-options: -Wall -O2
+    build-depends: base >= 3 && < 5, OpenGL >= 2.9.0.0, OpenAL >= 1.5.0.0
+    extensions: CPP, ForeignFunctionInterface
 
 source-repository head
   type:     git
