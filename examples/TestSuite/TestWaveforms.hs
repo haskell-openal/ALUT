@@ -12,7 +12,7 @@ import Sound.ALUT
 playTone :: (Frequency -> Phase -> Duration -> SoundDataSource a) -> IO ()
 playTone soundDataSource = do
    buf <- createBuffer (soundDataSource 440 0 1)
-   [source] <- genObjectNames 1
+   source <- genObjectName
    buffer source $= Just buf
    play [source]
    sleep 1

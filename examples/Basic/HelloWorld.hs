@@ -14,7 +14,7 @@ main :: IO ()
 main =
    withProgNameAndArgs runALUT $ \_progName _args -> do
       helloBuffer <- createBuffer HelloWorld
-      [helloSource] <- genObjectNames 1
+      helloSource <- genObjectName
       buffer helloSource $= Just helloBuffer
       play [helloSource]
       sleep 1

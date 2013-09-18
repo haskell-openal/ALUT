@@ -34,7 +34,7 @@ playFile fileName = do
    buf <- withFileContents fileName (createBuffer . FileImage)
 
    -- Generate a single source, attach the buffer to it and start playing.
-   [source] <- genObjectNames 1
+   source <- genObjectName
    buffer source $= Just buf
    play [source]
 
