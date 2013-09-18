@@ -15,7 +15,7 @@ module Sound.ALUT.Errors (
    throwIfALfalse, throwIfNullPtr, makeBuffer
 )  where
 
-import Control.Monad ( when )
+import Control.Monad ( void, when )
 import Data.Maybe ( fromJust, isNothing )
 import Foreign.Ptr ( Ptr, nullPtr )
 import Sound.OpenAL.AL.ALboolean ( unmarshalALboolean )
@@ -37,9 +37,8 @@ throwIf failurePredicate name action = do
 --------------------------------------------------------------------------------
 
 throwIfALfalse :: String -> IO ALboolean -> IO ()
-throwIfALfalse name action = do
-   throwIf (not . unmarshalALboolean) name action
-   return ()
+throwIfALfalse name action =
+   void $ throwIf (not . unmarshalALboolean) name action
 
 --------------------------------------------------------------------------------
 
