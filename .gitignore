@@ -7,4 +7,12 @@
 /config.status
 /configure
 /dist/
+/examples/Basic/HelloWorld
+/examples/Basic/OpenALInfo
+/examples/Basic/PlayFile
+/examples/TestSuite/TestErrorStuff
+/examples/TestSuite/TestFileLoader
+/examples/TestSuite/TestMemoryLoader
+/examples/TestSuite/TestVersion
+/examples/TestSuite/TestWaveforms
 /include/HsALUTConfig.h
