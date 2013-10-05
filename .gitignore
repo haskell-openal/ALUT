@@ -1,6 +1,7 @@
 *.exe
 *.hi
 *.o
+*~
 /ALUT.buildinfo
 /autom4te.cache/
 /config.log
