@@ -32,6 +32,7 @@ before_install:
   - popd
   - ghc-pkg list
 script:
+  - autoreconf
   - cabal install --enable-documentation
   - pushd examples/Basic
   - ghc --make -Wall -O2 HelloWorld.hs
