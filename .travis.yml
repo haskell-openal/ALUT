@@ -25,7 +25,7 @@ before_install:
   - popd
   - ghc-pkg list
   - pushd ..
-  - git clone --depth=100 --quiet https://github.com/haskell-opengl/OpenAL.git
+  - git clone --depth=100 --quiet https://github.com/haskell-openal/OpenAL.git
   - cd OpenAL
   - git checkout
   - cabal install --enable-documentation
