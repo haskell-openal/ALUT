@@ -3,7 +3,7 @@
 -- Module      :  Sound.ALUT
 -- Copyright   :  (c) Sven Panne 2005-2013
 -- License     :  BSD3
--- 
+--
 -- Maintainer  :  Sven Panne <svenpanne@gmail.com>
 -- Stability   :  stable
 -- Portability :  portable

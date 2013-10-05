@@ -3,7 +3,7 @@
 -- Module      :  Sound.ALUT.Loaders
 -- Copyright   :  (c) Sven Panne 2005-2013
 -- License     :  BSD3
--- 
+--
 -- Maintainer  :  Sven Panne <svenpanne@gmail.com>
 -- Stability   :  stable
 -- Portability :  portable
@@ -32,7 +32,7 @@ import Sound.ALUT.Constants (
    alut_WAVEFORM_IMPULSE, alut_WAVEFORM_WHITENOISE,
    alut_LOADER_BUFFER, alut_LOADER_MEMORY )
 import Sound.ALUT.Errors ( makeBuffer, throwIfNullPtr )
-import Sound.OpenAL.AL.BasicTypes ( ALsizei, ALenum, ALfloat )
+import Sound.OpenAL.AL.BasicTypes
 import Sound.OpenAL.AL.Buffer ( Buffer, MemoryRegion(..), BufferData(..) )
 import Sound.OpenAL.AL.Format ( unmarshalFormat )
 import Sound.OpenAL.ALC.Context ( Frequency )
@@ -68,11 +68,15 @@ createBuffer src = makeBuffer "createBuffer" $ case src of
    File filePath -> withCString filePath alut_CreateBufferFromFile
    FileImage (MemoryRegion buf size) -> alut_CreateBufferFromFileImage buf size
    HelloWorld -> alut_CreateBufferHelloWorld
-   Sine f p d -> alut_CreateBufferWaveform alut_WAVEFORM_SINE f p d 
-   Square f p d -> alut_CreateBufferWaveform alut_WAVEFORM_SQUARE f p d
-   Sawtooth f p d -> alut_CreateBufferWaveform alut_WAVEFORM_SAWTOOTH f p d
-   Impulse f p d -> alut_CreateBufferWaveform alut_WAVEFORM_IMPULSE f p d
-   WhiteNoise d -> alut_CreateBufferWaveform alut_WAVEFORM_WHITENOISE 1 0 d
+   Sine f p d -> createBufferWaveform alut_WAVEFORM_SINE f p d
+   Square f p d -> createBufferWaveform alut_WAVEFORM_SQUARE f p d
+   Sawtooth f p d -> createBufferWaveform alut_WAVEFORM_SAWTOOTH f p d
+   Impulse f p d -> createBufferWaveform alut_WAVEFORM_IMPULSE f p d
+   WhiteNoise d -> createBufferWaveform alut_WAVEFORM_WHITENOISE 1 0 d
+
+createBufferWaveform :: ALenum -> Float -> Float -> Float -> IO ALuint
+createBufferWaveform w f p d =
+   alut_CreateBufferWaveform w (realToFrac f) (realToFrac p) (realToFrac d)
 
 --------------------------------------------------------------------------------
 
@@ -81,11 +85,15 @@ createBufferData src = case src of
    File filePath -> withCString filePath $ \fp -> loadWith (alut_LoadMemoryFromFile fp)
    FileImage (MemoryRegion buf size) -> loadWith (alut_LoadMemoryFromFileImage buf size)
    HelloWorld -> loadWith alut_LoadMemoryHelloWorld
-   Sine f p d -> loadWith (alut_LoadMemoryWaveform alut_WAVEFORM_SINE f p d)
-   Square f p d -> loadWith (alut_LoadMemoryWaveform alut_WAVEFORM_SQUARE f p d)
-   Sawtooth f p d -> loadWith (alut_LoadMemoryWaveform alut_WAVEFORM_SAWTOOTH f p d)
-   Impulse f p d -> loadWith (alut_LoadMemoryWaveform alut_WAVEFORM_IMPULSE f p d)
-   WhiteNoise d -> loadWith (alut_LoadMemoryWaveform alut_WAVEFORM_WHITENOISE 1 0 d)
+   Sine f p d -> loadWith (loadMemoryWaveform alut_WAVEFORM_SINE f p d)
+   Square f p d -> loadWith (loadMemoryWaveform alut_WAVEFORM_SQUARE f p d)
+   Sawtooth f p d -> loadWith (loadMemoryWaveform alut_WAVEFORM_SAWTOOTH f p d)
+   Impulse f p d -> loadWith (loadMemoryWaveform alut_WAVEFORM_IMPULSE f p d)
+   WhiteNoise d -> loadWith (loadMemoryWaveform alut_WAVEFORM_WHITENOISE 1 0 d)
+
+loadMemoryWaveform :: ALenum -> Float -> Float -> Float -> Ptr ALenum -> Ptr ALsizei -> Ptr ALfloat -> IO (Ptr b)
+loadMemoryWaveform w f p d =
+   alut_LoadMemoryWaveform w (realToFrac f) (realToFrac p) (realToFrac d)
 
 loadWith :: (Ptr ALenum -> Ptr ALsizei -> Ptr ALfloat -> IO (Ptr b)) -> IO (BufferData b)
 loadWith loader =
@@ -97,7 +105,7 @@ loadWith loader =
             format <- peek formatBuf
             size <- peek sizeBuf
             frequency <- peek frequencyBuf
-            return $ BufferData (MemoryRegion buf size) (unmarshalFormat format) frequency
+            return $ BufferData (MemoryRegion buf size) (unmarshalFormat format) (realToFrac frequency)
 
 --------------------------------------------------------------------------------
 
