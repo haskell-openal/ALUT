@@ -13,16 +13,10 @@ description:
         and creating waveforms very easy. For more information about the
         C library on which this binding is based, please see:
         <http://distro.ibiblio.org/rootlinux/rootlinux-ports/more/freealut/freealut-1.1.0/doc/alut.html>.
-build-type: Configure
+build-type: Simple
 cabal-version:  >= 1.6
 extra-source-files:
-        ALUT.buildinfo.in
         README.md
-        aclocal.m4
-        config.guess
-        config.sub
-        configure
-        configure.ac
         examples/Basic/HelloWorld.hs
         examples/Basic/OpenALInfo.hs
         examples/Basic/PlayFile.hs
@@ -34,12 +28,6 @@ extra-source-files:
         examples/TestSuite/file1.wav
         examples/TestSuite/file2.au
         examples/TestSuite/file3.raw
-        install-sh
-extra-tmp-files:
-        config.log
-        config.status
-        autom4te.cache
-        ALUT.buildinfo
 
 flag UseNativeWindowsLibraries
    description:

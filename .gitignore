@@ -2,11 +2,6 @@
 *.hi
 *.o
 *~
-/ALUT.buildinfo
-/autom4te.cache/
-/config.log
-/config.status
-/configure
 /dist/
 /examples/Basic/HelloWorld
 /examples/Basic/OpenALInfo
