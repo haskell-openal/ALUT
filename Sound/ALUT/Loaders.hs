@@ -52,14 +52,7 @@ data SoundDataSource a =
    | Sawtooth Frequency Phase Duration
    | Impulse Frequency Phase Duration
    | WhiteNoise Duration
-#ifdef __HADDOCK__
--- Help Haddock a bit, because it doesn't do any instance inference.
-instance Eq (SoundDataSource a)
-instance Ord (SoundDataSource a)
-instance Show (SoundDataSource a)
-#else
    deriving ( Eq, Ord, Show )
-#endif
 
 --------------------------------------------------------------------------------
 

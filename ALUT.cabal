@@ -40,6 +40,12 @@ extra-tmp-files:
         config.status
         autom4te.cache
         ALUT.buildinfo
+
+flag UseNativeWindowsLibraries
+   description:
+      When compiling under Windows, use the native libraries instead of e.g. the
+      ones coming with Cygwin.
+
 library
     exposed-modules:
         Sound.ALUT,
@@ -51,10 +57,20 @@ library
         Sound.ALUT.Config,
         Sound.ALUT.Constants,
         Sound.ALUT.Errors
-    include-dirs: include
     ghc-options: -Wall -O2
     build-depends: base >= 3 && < 5, OpenGL >= 2.9.0.0, OpenAL >= 1.5.0.0
-    extensions: CPP, ForeignFunctionInterface
+    if os(windows) && flag(UseNativeWindowsLibraries)
+      if arch(i386)
+         cpp-options: "-DCALLCONV=stdcall"
+      else
+         cpp-options: "-DCALLCONV=ccall"
+      extra-libraries: alut
+    else
+      cpp-options: "-DCALLCONV=ccall"
+      if os(darwin) || os(ios)
+         frameworks: ALUT
+      else
+         extra-libraries: alut
 
 source-repository head
   type:     git

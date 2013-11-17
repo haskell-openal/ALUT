@@ -15,6 +15,7 @@ module Sound.ALUT.Initialization (
    withProgNameAndArgs
 )  where
 
+import Control.Exception ( finally )
 import Data.List ( genericLength )
 import Foreign.C.String ( CString, withCString, peekCString )
 import Foreign.C.Types ( CInt )
@@ -22,21 +23,10 @@ import Foreign.Marshal.Array ( withArray0, peekArray )
 import Foreign.Marshal.Utils ( with, withMany )
 import Foreign.Ptr ( Ptr, nullPtr )
 import Foreign.Storable ( Storable(peek) )
-import Sound.ALUT.Errors ( throwIfALfalse )
 import Sound.ALUT.Config ( alut_Init, alut_InitWithoutContext, alut_Exit )
+import Sound.ALUT.Errors ( throwIfALfalse )
 import Sound.OpenAL.AL.BasicTypes ( ALboolean )
 import System.Environment ( getProgName, getArgs )
-
--- Ugly: I see something like this in almost every package now...
-#ifdef __NHC__
-import IO ( bracket )
-
-finally :: IO a -> IO b -> IO a
-action `finally` sequel = bracket (return ()) (const sequel) (const action)
-
-#else
-import Control.Exception ( finally )
-#endif
 
 --------------------------------------------------------------------------------
 
