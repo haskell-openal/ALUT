@@ -1,10 +1,7 @@
 AC_INIT([Haskell ALUT package], [2.3.0.0], [svenpanne@gmail.com], [ALUT])
 
 # Safety check: Ensure that we are in the correct source directory.
-AC_CONFIG_SRCDIR([include/HsALUT.h.in])
-
-# Contains all kinds of stuff which is needed for using this package.
-AC_CONFIG_HEADERS([include/HsALUT.h])
+AC_CONFIG_SRCDIR([ALUT.cabal])
 
 # we do not really care about this here, but this avoids a warning about an
 # unknown option

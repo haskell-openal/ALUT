@@ -34,14 +34,12 @@ extra-source-files:
         examples/TestSuite/file1.wav
         examples/TestSuite/file2.au
         examples/TestSuite/file3.raw
-        include/HsALUT.h.in
         install-sh
 extra-tmp-files:
         config.log
         config.status
         autom4te.cache
         ALUT.buildinfo
-        include/HsALUT.h
 library
     exposed-modules:
         Sound.ALUT,
@@ -54,8 +52,6 @@ library
         Sound.ALUT.Constants,
         Sound.ALUT.Errors
     include-dirs: include
-    includes: HsALUT.h
-    install-includes: HsALUT.h
     ghc-options: -Wall -O2
     build-depends: base >= 3 && < 5, OpenGL >= 2.9.0.0, OpenAL >= 1.5.0.0
     extensions: CPP, ForeignFunctionInterface
