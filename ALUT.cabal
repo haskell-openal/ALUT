@@ -35,14 +35,12 @@ extra-source-files:
         examples/TestSuite/file2.au
         examples/TestSuite/file3.raw
         include/HsALUT.h.in
-        include/HsALUTConfig.h.in
         install-sh
 extra-tmp-files:
         config.log
         config.status
         autom4te.cache
         ALUT.buildinfo
-        include/HsALUTConfig.h
         include/HsALUT.h
 library
     exposed-modules:
