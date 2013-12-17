@@ -18,10 +18,9 @@ module Sound.ALUT.Errors (
 import Control.Monad ( void, when )
 import Data.Maybe ( fromJust, isNothing )
 import Foreign.Ptr ( Ptr, nullPtr )
-import Sound.OpenAL.AL.ALboolean ( unmarshalALboolean )
 import Sound.OpenAL.AL.BasicTypes ( ALboolean, ALuint )
 import Sound.OpenAL.AL.Buffer ( Buffer )
-import Sound.OpenAL.AL.BufferInternal ( unmarshalBuffer )
+import Sound.OpenAL.AL.Extensions ( unmarshalALboolean, unmarshalBuffer )
 import Sound.ALUT.Config ( alut_GetError, alut_GetErrorString )
 
 --------------------------------------------------------------------------------

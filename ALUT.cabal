@@ -1,5 +1,5 @@
 name: ALUT
-version: 2.3.0.0
+version: 2.3.0.1
 license: BSD3
 license-file: LICENSE
 maintainer: Sven Panne <svenpanne@gmail.com>
@@ -46,7 +46,7 @@ library
         Sound.ALUT.Constants,
         Sound.ALUT.Errors
     ghc-options: -Wall -O2
-    build-depends: base >= 3 && < 5, OpenGL >= 2.9.0.0, OpenAL >= 1.5.0.0
+    build-depends: base >= 3 && < 5, OpenGL >= 2.9.0.0, OpenAL >= 1.6.0.0
     if os(windows) && flag(UseNativeWindowsLibraries)
       if arch(i386)
          cpp-options: "-DCALLCONV=stdcall"

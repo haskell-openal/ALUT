@@ -34,7 +34,7 @@ import Sound.ALUT.Constants (
 import Sound.ALUT.Errors ( makeBuffer, throwIfNullPtr )
 import Sound.OpenAL.AL.BasicTypes
 import Sound.OpenAL.AL.Buffer ( Buffer, MemoryRegion(..), BufferData(..) )
-import Sound.OpenAL.AL.Format ( unmarshalFormat )
+import Sound.OpenAL.AL.Extensions ( unmarshalFormat )
 import Sound.OpenAL.ALC.Context ( Frequency )
 
 --------------------------------------------------------------------------------
