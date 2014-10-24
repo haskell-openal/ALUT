@@ -1,8 +1,10 @@
-*.exe
-*.hi
-*.o
+*.swp
 *~
-/dist/
+/.cabal-sandbox
+/dist
+/examples/**/*.exe
+/examples/**/*.hi
+/examples/**/*.o
 /examples/Basic/HelloWorld
 /examples/Basic/OpenALInfo
 /examples/Basic/PlayFile
@@ -11,3 +13,4 @@
 /examples/TestSuite/TestMemoryLoader
 /examples/TestSuite/TestVersion
 /examples/TestSuite/TestWaveforms
+cabal.sandbox.config
