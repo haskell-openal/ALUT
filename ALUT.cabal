@@ -59,7 +59,7 @@ library
     extra-libraries: alut
   else
     cpp-options: "-DCALLCONV=ccall"
-    if os(darwin) || os(ios)
+    if os(ios)
       frameworks: ALUT
     else
       extra-libraries: alut
