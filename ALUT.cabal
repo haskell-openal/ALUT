@@ -1,5 +1,5 @@
 name: ALUT
-version: 2.3.0.1
+version: 2.3.0.2
 synopsis: A binding for the OpenAL Utility Toolkit
 description:
   A Haskell binding for the OpenAL Utility Toolkit, which makes
