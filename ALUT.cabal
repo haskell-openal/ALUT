@@ -1,5 +1,5 @@
 name: ALUT
-version: 2.3.0.2
+version: 2.4.0.0
 synopsis: A binding for the OpenAL Utility Toolkit
 description:
   A Haskell binding for the OpenAL Utility Toolkit, which makes
@@ -47,8 +47,11 @@ library
     Sound.ALUT.Constants
     Sound.ALUT.Errors
   hs-source-dirs: src
-  ghc-options: -Wall -O2
-  build-depends: base >= 3 && < 5, OpenGL >= 2.9.0.0, OpenAL >= 1.6.0.0
+  ghc-options: -Wall
+  build-depends:
+    base     >= 3   && < 5,
+    StateVar >= 1.1 && < 1.2,
+    OpenAL   >= 1.7 && < 1.8
   default-language: Haskell2010
   other-extensions: CPP
   if os(windows) && flag(UseNativeWindowsLibraries)

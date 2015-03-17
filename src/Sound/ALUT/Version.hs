@@ -15,7 +15,7 @@ module Sound.ALUT.Version (
 )  where
 
 import Control.Monad ( liftM2 )
-import Graphics.Rendering.OpenGL ( GettableStateVar, makeGettableStateVar )
+import Data.StateVar ( GettableStateVar, makeGettableStateVar )
 import Sound.OpenAL.AL.BasicTypes ( ALint )
 import Sound.ALUT.Config ( alut_GetMajorVersion, alut_GetMinorVersion )
 import Sound.ALUT.Constants ( alut_API_MAJOR_VERSION, alut_API_MINOR_VERSION )

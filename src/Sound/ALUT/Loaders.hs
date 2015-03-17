@@ -16,11 +16,11 @@ module Sound.ALUT.Loaders (
    bufferMIMETypes, bufferDataMIMETypes
 )  where
 
+import Data.StateVar ( GettableStateVar, makeGettableStateVar )
 import Foreign.C.String ( peekCString, withCString )
 import Foreign.Marshal.Alloc ( alloca )
 import Foreign.Storable ( Storable(peek) )
 import Foreign.Ptr ( Ptr )
-import Graphics.Rendering.OpenGL ( GettableStateVar, makeGettableStateVar )
 import Sound.ALUT.Config (
    alut_CreateBufferFromFile, alut_CreateBufferFromFileImage,
    alut_CreateBufferHelloWorld, alut_CreateBufferWaveform,
