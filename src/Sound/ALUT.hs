@@ -1,7 +1,7 @@
 --------------------------------------------------------------------------------
 -- |
 -- Module      :  Sound.ALUT
--- Copyright   :  (c) Sven Panne 2005-2013
+-- Copyright   :  (c) Sven Panne 2005-2015
 -- License     :  BSD3
 --
 -- Maintainer  :  Sven Panne <svenpanne@gmail.com>
@@ -11,7 +11,8 @@
 -- A Haskell binding for the OpenAL Utility Toolkit, which makes managing of
 -- OpenAL contexts, loading sounds in various formats and creating waveforms
 -- very easy. For more information about the C library on which this binding is
--- based, please see: <http://www.openal.org/openal_webstf/specs/alut.html>.
+-- based, please see:
+-- <http://distro.ibiblio.org/rootlinux/rootlinux-ports/more/freealut/freealut-1.1.0/doc/alut.html>.
 --
 --------------------------------------------------------------------------------
 

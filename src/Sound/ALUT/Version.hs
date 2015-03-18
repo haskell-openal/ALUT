@@ -1,7 +1,7 @@
 --------------------------------------------------------------------------------
 -- |
 -- Module      :  Sound.ALUT.Version
--- Copyright   :  (c) Sven Panne 2005-2013
+-- Copyright   :  (c) Sven Panne 2005-2015
 -- License     :  BSD3
 --
 -- Maintainer  :  Sven Panne <svenpanne@gmail.com>
@@ -17,8 +17,9 @@ module Sound.ALUT.Version (
 import Control.Monad ( liftM2 )
 import Data.StateVar ( GettableStateVar, makeGettableStateVar )
 import Sound.OpenAL.AL.BasicTypes ( ALint )
-import Sound.ALUT.Config ( alut_GetMajorVersion, alut_GetMinorVersion )
-import Sound.ALUT.Constants ( alut_API_MAJOR_VERSION, alut_API_MINOR_VERSION )
+
+import Sound.ALUT.Config
+import Sound.ALUT.Constants
 
 --------------------------------------------------------------------------------
 

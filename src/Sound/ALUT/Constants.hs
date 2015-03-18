@@ -2,7 +2,7 @@
 --------------------------------------------------------------------------------
 -- |
 -- Module      :  Sound.ALUT.Constants
--- Copyright   :  (c) Sven Panne 2005-2013
+-- Copyright   :  (c) Sven Panne 2005-2015
 -- License     :  BSD3
 --
 -- Maintainer  :  Sven Panne <svenpanne@gmail.com>

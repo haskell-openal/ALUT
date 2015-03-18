@@ -2,7 +2,7 @@
 --------------------------------------------------------------------------------
 -- |
 -- Module      :  Sound.ALUT.Errors
--- Copyright   :  (c) Sven Panne 2005-2013
+-- Copyright   :  (c) Sven Panne 2005-2015
 -- License     :  BSD3
 --
 -- Maintainer  :  Sven Panne <svenpanne@gmail.com>
@@ -21,6 +21,7 @@ import Foreign.Ptr ( Ptr, nullPtr )
 import Sound.OpenAL.AL.BasicTypes ( ALboolean, ALuint )
 import Sound.OpenAL.AL.Buffer ( Buffer )
 import Sound.OpenAL.AL.Extensions ( unmarshalALboolean, unmarshalBuffer )
+
 import Sound.ALUT.Config ( alut_GetError, alut_GetErrorString )
 
 --------------------------------------------------------------------------------

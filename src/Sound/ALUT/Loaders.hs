@@ -1,7 +1,7 @@
 --------------------------------------------------------------------------------
 -- |
 -- Module      :  Sound.ALUT.Loaders
--- Copyright   :  (c) Sven Panne 2005-2013
+-- Copyright   :  (c) Sven Panne 2005-2015
 -- License     :  BSD3
 --
 -- Maintainer  :  Sven Panne <svenpanne@gmail.com>
@@ -16,26 +16,20 @@ module Sound.ALUT.Loaders (
    bufferMIMETypes, bufferDataMIMETypes
 )  where
 
+import Control.Monad.IO.Class ( MonadIO(..) )
 import Data.StateVar ( GettableStateVar, makeGettableStateVar )
 import Foreign.C.String ( peekCString, withCString )
 import Foreign.Marshal.Alloc ( alloca )
-import Foreign.Storable ( Storable(peek) )
 import Foreign.Ptr ( Ptr )
-import Sound.ALUT.Config (
-   alut_CreateBufferFromFile, alut_CreateBufferFromFileImage,
-   alut_CreateBufferHelloWorld, alut_CreateBufferWaveform,
-   alut_LoadMemoryFromFile, alut_LoadMemoryFromFileImage,
-   alut_LoadMemoryHelloWorld, alut_LoadMemoryWaveform,
-   alut_GetMIMETypes )
-import Sound.ALUT.Constants (
-   alut_WAVEFORM_SINE, alut_WAVEFORM_SQUARE, alut_WAVEFORM_SAWTOOTH,
-   alut_WAVEFORM_IMPULSE, alut_WAVEFORM_WHITENOISE,
-   alut_LOADER_BUFFER, alut_LOADER_MEMORY )
-import Sound.ALUT.Errors ( makeBuffer, throwIfNullPtr )
+import Foreign.Storable ( peek )
 import Sound.OpenAL.AL.BasicTypes
 import Sound.OpenAL.AL.Buffer ( Buffer, MemoryRegion(..), BufferData(..) )
 import Sound.OpenAL.AL.Extensions ( unmarshalFormat )
 import Sound.OpenAL.ALC.Context ( Frequency )
+
+import Sound.ALUT.Config
+import Sound.ALUT.Constants
+import Sound.ALUT.Errors
 
 --------------------------------------------------------------------------------
 
@@ -56,8 +50,8 @@ data SoundDataSource a =
 
 --------------------------------------------------------------------------------
 
-createBuffer :: SoundDataSource a -> IO Buffer
-createBuffer src = makeBuffer "createBuffer" $ case src of
+createBuffer :: MonadIO m => SoundDataSource a -> m Buffer
+createBuffer src = liftIO $ makeBuffer "createBuffer" $ case src of
    File filePath -> withCString filePath alut_CreateBufferFromFile
    FileImage (MemoryRegion buf size) -> alut_CreateBufferFromFileImage buf size
    HelloWorld -> alut_CreateBufferHelloWorld
@@ -73,8 +67,8 @@ createBufferWaveform w f p d =
 
 --------------------------------------------------------------------------------
 
-createBufferData :: SoundDataSource a -> IO (BufferData b)
-createBufferData src = case src of
+createBufferData :: MonadIO m => SoundDataSource a -> m (BufferData b)
+createBufferData src = liftIO $ case src of
    File filePath -> withCString filePath $ \fp -> loadWith (alut_LoadMemoryFromFile fp)
    FileImage (MemoryRegion buf size) -> loadWith (alut_LoadMemoryFromFileImage buf size)
    HelloWorld -> loadWith alut_LoadMemoryHelloWorld

@@ -3,7 +3,7 @@
 --------------------------------------------------------------------------------
 -- |
 -- Module      :  Sound.ALUT.Config
--- Copyright   :  (c) Sven Panne 2006-2013
+-- Copyright   :  (c) Sven Panne 2005-2015
 -- License     :  BSD3
 --
 -- Maintainer  :  Sven Panne <svenpanne@gmail.com>
@@ -43,9 +43,12 @@ module Sound.ALUT.Config (
 
 --------------------------------------------------------------------------------
 
-import Foreign.C
-import Foreign.Ptr
-import Sound.OpenAL.AL.BasicTypes
+-- Make the foreign imports happy.
+import Foreign.C.Types
+
+import Foreign.C.String ( CString, peekCString )
+import Foreign.Ptr ( Ptr )
+import Sound.OpenAL.AL.BasicTypes ( ALboolean, ALenum, ALfloat, ALint, ALsizei, ALuint )
 
 --------------------------------------------------------------------------------
 

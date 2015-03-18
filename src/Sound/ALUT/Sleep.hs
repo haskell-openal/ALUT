@@ -1,7 +1,7 @@
 --------------------------------------------------------------------------------
 -- |
 -- Module      :  Sound.ALUT.Sleep
--- Copyright   :  (c) Sven Panne 2005-2013
+-- Copyright   :  (c) Sven Panne 2005-2015
 -- License     :  BSD3
 --
 -- Maintainer  :  Sven Panne <svenpanne@gmail.com>
@@ -14,11 +14,13 @@ module Sound.ALUT.Sleep (
    sleep
 )  where
 
-import Sound.ALUT.Config ( alut_Sleep )
-import Sound.ALUT.Errors ( throwIfALfalse )
-import Sound.ALUT.Loaders ( Duration )
+import Control.Monad.IO.Class ( MonadIO(..) )
+
+import Sound.ALUT.Config
+import Sound.ALUT.Errors
+import Sound.ALUT.Loaders
 
 --------------------------------------------------------------------------------
 
-sleep :: Duration -> IO ()
-sleep = throwIfALfalse "sleep" . alut_Sleep . realToFrac
+sleep :: MonadIO m => Duration -> m ()
+sleep = liftIO . throwIfALfalse "sleep" . alut_Sleep . realToFrac
