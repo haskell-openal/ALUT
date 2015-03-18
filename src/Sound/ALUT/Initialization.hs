@@ -15,7 +15,6 @@ module Sound.ALUT.Initialization (
    withProgNameAndArgs
 )  where
 
-import Control.Exception ( finally )
 import Control.Monad.IO.Class ( MonadIO(..) )
 import Data.List ( genericLength )
 import Foreign.C.String ( CString, withCString, peekCString )
@@ -25,7 +24,6 @@ import Foreign.Marshal.Utils ( with, withMany )
 import Foreign.Ptr ( Ptr, nullPtr )
 import Foreign.Storable ( Storable(peek) )
 import Sound.OpenAL.AL.BasicTypes ( ALboolean )
-import Sound.OpenAL.AL.Extensions ( unmarshalALboolean )
 import System.Environment ( getProgName, getArgs )
 
 import Sound.ALUT.Config
