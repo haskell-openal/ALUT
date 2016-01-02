@@ -1,5 +1,5 @@
 name: ALUT
-version: 2.4.0.1
+version: 2.4.0.2
 synopsis: A binding for the OpenAL Utility Toolkit
 description:
   A Haskell binding for the OpenAL Utility Toolkit, which makes
@@ -9,7 +9,7 @@ description:
   <http://distro.ibiblio.org/rootlinux/rootlinux-ports/more/freealut/freealut-1.1.0/doc/alut.html>.
 homepage: https://github.com/haskell-openal/ALUT
 bug-reports: https://github.com/haskell-openal/ALUT/issues
-copyright: Copyright (C) 2005-2015 Sven Panne
+copyright: Copyright (C) 2005-2016 Sven Panne
 license: BSD3
 license-file: LICENSE
 author: Sven Panne

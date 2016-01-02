@@ -1,6 +1,6 @@
 {-
    HelloWorld.hs (adapted from hello_world.c in freealut)
-   Copyright (c) Sven Panne 2005-2015
+   Copyright (c) Sven Panne 2005-2016
    This file is part of the ALUT package & distributed under a BSD-style license.
    See the file LICENSE.
 -}
