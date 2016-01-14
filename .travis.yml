@@ -68,6 +68,8 @@ matrix:
          sources:
           - hvr-ghc
          packages:
+          - libopenal-dev
+          - libalut-dev
           - cabal-install-1.24
           - ghc-8.0.1
    - env: CABALVER=head GHCVER=head
