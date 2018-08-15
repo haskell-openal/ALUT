@@ -25,9 +25,10 @@ tested-with:
   GHC == 7.10.3
   GHC == 8.0.2
   GHC == 8.2.2
-  GHC == 8.4.2
-  GHC == 8.5.*
-cabal-version:  >= 1.10
+  GHC == 8.4.3
+  GHC == 8.6.1
+  GHC == 8.7.*
+cabal-version: >= 1.10
 extra-source-files:
   CHANGELOG.md
   README.md
