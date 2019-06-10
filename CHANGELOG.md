@@ -1,3 +1,7 @@
+2.4.0.3
+-------
+* Relaxed upper version bound for `StateVar`.
+
 2.4.0.2
 -------
 * Build examples via cabal.
